@@ -4,31 +4,22 @@ public class MyFirstProgram {
 
     public static void main(String[] args) {
 
-       /*hello("world");
-       hello("user");
-       hello("Roman");*/
-
-       //double len = 5;
-       //area(5);
-       //area(8);
-
-       double a = 3;
-       double b = 4;
-       System.out.println("Площадь прямоугольника со сторонами " + a + ", " + b + " = " + area(a, b));
+       int a = 3;
+       int b = 4;
+       int c = 2;
+       int d = 2;
+       System.out.println("Площадь прямоугольника со сторонами " + a + " и " + b + " равна " + area(a, b));
+       System.out.println("Сумма сторон прямоугольника, составлящих " + c + " и " + d + ", равна " + sum(c, d));
 
     }
 
-    /*public static void hello (String s) {
-
-        System.out.println("Hello, " + s + "!");
-    }*/
-    //public static double area(double l) {
-        //System.out.println("Площадь квадрата со стороной " + l + " = " + l * l);
-        //return l * l;
-   // }
-
-    public static double area (double a, double b) {
+    public static int area (int a, int b) {
         return a * b;
+
+    }
+
+    public static int sum (int c, int d) {
+        return c + d;
 
     }
 }
