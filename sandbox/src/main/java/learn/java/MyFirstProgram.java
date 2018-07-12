@@ -4,15 +4,12 @@ public class MyFirstProgram {
 
     public static void main(String[] args) {
 
-       Area r = new Area();
-       r.a = 3;
-       r.b = 4;
+       Area r = new Area(3, 4);
 
-       Sum s = new Sum();
-       s.c = 2;
-       s.d = 2;
+       Sum s = new Sum(2, 6);
+      
        System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " равна " + area(r));
-       System.out.println("Сумма сторон прямоугольника, составлящих " + s.c + " и " + s.d + ", равна " + sum(s));
+       System.out.println("Сумма сторон прямоугольника, составлящих " + s.c + " и " + s.d + ", равна " + area(s));
 
     }
 
@@ -21,7 +18,7 @@ public class MyFirstProgram {
 
     }
 
-    public static int sum (Sum s) {
+    public static int area (Sum s) {
         return s.c + s.d;
 
     }
