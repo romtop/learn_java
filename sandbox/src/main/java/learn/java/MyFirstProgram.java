@@ -8,7 +8,7 @@ public class MyFirstProgram {
 
         Point p2 = new Point (2, 3);
 
-        System.out.println ("Расстояние между точкой A с координатами " + p1.x1 + ", " + p1.x2 + " и точкой В с координатами " + p2.y1 + ", " + p2.y2 + " = " + distance ());
+        System.out.println ("Расстояние между точкой A с координатами " + p1.x1 + ", " + p1.y1 + " и точкой В с координатами " + p2.x2 + ", " + p2.y2 + " = " + p1.distance(p2));
 
        /*System.out.println("Расстояние между точками " + p1 + " и " + p2 + " = " + Point p1, Point p2);
 
