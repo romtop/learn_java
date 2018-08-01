@@ -73,4 +73,18 @@ public class TestBaseContact {
    public void tearDown() {
        wd.quit();
    }
+
+   protected void closeConfirmDeletionDialogWindow() {
+      wd.switchTo().alert().accept();
+   }
+
+   protected void deleteSelectedContact() {
+      wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
+   }
+
+   protected void selectContact() {
+      if (!wd.findElement(By.name("selected[]")).isSelected()) {
+         wd.findElement(By.name("selected[]")).click();
+      }
+   }
 }
