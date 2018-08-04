@@ -23,10 +23,14 @@ public class TestBase {
 
    @BeforeMethod
    public void setUp() throws Exception {
-       wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
-       wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-       wd.get("http://localhost/addressbook/group.php");
-       login("admin", "secret");
+      init();
+   }
+
+   private void init() {
+      wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
+      wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+      wd.get("http://localhost/addressbook/");
+      login("admin", "secret");
    }
 
    private void login(String username, String password) {
@@ -69,7 +73,11 @@ public class TestBase {
 
    @AfterMethod
    public void tearDown() {
-       wd.quit();
+      stop();
+   }
+
+   private void stop() {
+      wd.quit();
    }
 
    protected void deleteSelectedGroups() {
@@ -80,5 +88,49 @@ public class TestBase {
        if (!wd.findElement(By.name("selected[]")).isSelected()) {
            wd.findElement(By.name("selected[]")).click();
        }
+   }
+
+   protected void returnToHomePage() {
+       wd.findElement(By.linkText("home")).click();
+   }
+
+   protected void submitContactCreation() {
+       wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+   }
+
+   protected void fillContactForm(ContactData contactData) {
+       wd.findElement(By.name("firstname")).click();
+       wd.findElement(By.name("firstname")).clear();
+       wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
+       wd.findElement(By.name("lastname")).click();
+       wd.findElement(By.name("lastname")).clear();
+       wd.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
+       wd.findElement(By.name("address")).click();
+       wd.findElement(By.name("address")).clear();
+       wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
+       wd.findElement(By.name("home")).click();
+       wd.findElement(By.name("home")).clear();
+       wd.findElement(By.name("home")).sendKeys(contactData.getPhoneHome());
+       wd.findElement(By.name("email")).click();
+       wd.findElement(By.name("email")).clear();
+       wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+   }
+
+   protected void initContactCreation() {
+       wd.findElement(By.linkText("add new")).click();
+   }
+
+   protected void confirmSelectedContactDeletiion() {
+      wd.switchTo().alert().accept();
+   }
+
+   protected void deleteSelectedContacts() {
+      wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
+   }
+
+   protected void selectContact() {
+      if (!wd.findElement(By.name("selected[]")).isSelected()) {
+         wd.findElement(By.name("selected[]")).click();
+      }
    }
 }

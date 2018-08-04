@@ -2,14 +2,14 @@ package my.autotests.addressbook;
 
 import org.testng.annotations.Test;
 
-public class ContactDeletionTest extends TestBaseContact{
+public class ContactDeletionTest extends TestBase{
 
    @Test
    public void testContactDeletion() {
       returnToHomePage();
       selectContact();
-      deleteSelectedContact();
-      closeConfirmDeletionDialogWindow();
+      deleteSelectedContacts();
+      confirmSelectedContactDeletiion();
       returnToHomePage();
    }
 
