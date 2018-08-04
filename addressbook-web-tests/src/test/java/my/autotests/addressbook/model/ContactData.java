@@ -1,17 +1,17 @@
-package my.autotests.addressbook;
+package my.autotests.addressbook.model;
 
 public class ContactData {
    private final String firstName;
    private final String lastName;
    private final String address;
-   private final String homePhone;
+   private final String phoneHome;
    private final String email;
 
-   public ContactData(String firstName, String lastName, String address, String homePhone, String email) {
+   public ContactData(String firstName, String lastName, String address, String phoneHome, String email) {
       this.firstName = firstName;
       this.lastName = lastName;
       this.address = address;
-      this.homePhone = homePhone;
+      this.phoneHome = phoneHome;
       this.email = email;
    }
 
@@ -27,8 +27,8 @@ public class ContactData {
       return address;
    }
 
-   public String getHomePhone() {
-      return homePhone;
+   public String getPhoneHome() {
+      return phoneHome;
    }
 
    public String getEmail() {

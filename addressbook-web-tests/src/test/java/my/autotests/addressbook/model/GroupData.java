@@ -1,4 +1,4 @@
-package my.autotests.addressbook;
+package my.autotests.addressbook.model;
 
 public class GroupData {
    private final String name;
