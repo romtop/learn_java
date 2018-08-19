@@ -2,11 +2,12 @@ package my.autotests.addressbook.appmanager;
 
 import my.autotests.addressbook.model.GroupData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class GroupHelper extends HelperBase{
 
-   public GroupHelper(FirefoxDriver wd) {
+   public GroupHelper(WebDriver wd) {
       super(wd);
    }
 
